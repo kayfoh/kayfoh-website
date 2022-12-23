@@ -1,15 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+import datetime
+
+tasks = ["foo", "bar", "zoo"]
+
 # Create your views here.
 def index(request):
-    return HttpResponse("Welcome!")
+    return render(request, "homepage/index.html")
 
-def portfolio_page(request):
-    return HttpResponse("Welcome to my portfolios page")
+def contact_page(request):
+    return render(request, "homepage/contact.html")
 
-def vacations_page(request):
-    return HttpResponse("Welcome to the Vacations page")
+def about_page(request):
+    return render(request, "homepage/about.html")
 
 def webpages(request, name):
-    return HttpResponse(f"Welcome to the {name}")
+    timenow = datetime.datetime.now()
+    return render(request, "homepage/webpages.html", {
+        "name": name.capitalize(),
+        "timeofday": timenow.hour < 18,
+        "tasks":tasks
+    })

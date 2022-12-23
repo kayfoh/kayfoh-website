@@ -1,0 +1,7 @@
+{% extends "homepage/layout.html" %}
+
+{% block body %}
+    <h1>Welcome to the homepage!</h1>
+    <a href="{% url 'about' %}">Go to the About page</a> 
+    <a href="{% url 'contact' %}">Go to the Contact page</a>
+{% endblock %}

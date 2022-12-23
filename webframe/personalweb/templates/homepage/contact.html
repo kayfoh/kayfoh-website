@@ -1,0 +1,11 @@
+{% extends "homepage/layout.html" %}
+
+{% block body %}
+    <h1>Welcome to the Contact page</h1>
+    <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+        <input type="text">
+        <input type="submit">
+    </form>
+    <a href="{% url 'index' %}">Go to homepage</a>
+{% endblock %}

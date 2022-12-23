@@ -1,0 +1,22 @@
+{% extends "homepage/layout.html" %}
+
+{% block body %}
+<!--<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+-->        {% if timeofday %}
+            <h1>Good Day</h1>
+        {% else %}
+            <h1>Good Night</h1>
+        {% endif %}
+        <h1>Welcome to the {{ name }} page</h1>
+        {% for task in tasks %}
+            <ul>{{ task }}</ul>
+        {% endfor %}
+        <a href="{% url 'index' %}">Go to Homepage</a>
+{% endblock %}
+<!--    </body>
+</html>
+-->
